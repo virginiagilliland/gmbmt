@@ -1,14 +1,87 @@
 
 /* javascript */
 "use strict";
-//functions to get data inputted by user//
+//functions to get data inputted by user & put as variables userLat, userLong, userHours, userMinutes
+var userLat = 35.50071444;
+var userLong = -80.84472615;
+var userHours = 4;
+var userMinutes = 17;
+var parkLat = 34.67214084;
+var parkLong = -77.14148631;
 
-//sort array by property
-//console.log(data[0]); //take spaces out of names//
+//FUNCTION NOW WORKS IN THE CONSOLE!!!!!!!!!!!!!!
+function haversineFormula(userLat, userLong, parkLat, parkLong) {
+  var radUserLat = userLat * (Math.PI / 180);
+  var radUserLong = userLong * (Math.PI / 180);
+  var radParkLat = parkLat * (Math.PI / 180);
+  var radParkLong = parkLong * (Math.PI / 180);
+
+  var difLat = radParkLat - radUserLat;
+  var difLong = radParkLong - radUserLong;
+
+  var haversineOne = Math.sin(difLat/2) * Math.sin(difLat/2) + Math.cos(radUserLat)*Math.cos(radParkLat) * Math.sin(difLong/2) * Math.sin(difLong/2);
+
+  var haversineTwo = 2 * 6378 * Math.asin(Math.sqrt(haversineOne));
+
+  var havmiles = haversineTwo * 0.621371;
+
+	return havmiles;
+}
+//console.log(haversineFormula(userLat, userLong, parkLat, parkLong))
+
+// Time Calculation
+
+function timeToHikingMiles(userHours, userMinutes){
+  return ((userHours * 60) + userMinutes)/25;
+}
+
+//Go through every park lat/long & calculate distance between park and user
+for(let i = 0; i < data.length; i++){
+	data[i].haversine = convertToMiles(data[i].lat)
+}
+
+//compare the returned haversine values from above, ordering them from lowest to highest
+function compare( a, b ) {
+  if ( a.haversine < b.haversine ){
+    return -1;
+  }
+  if ( a.haversine > b.haversine ){
+    return 1;
+  }
+  return 0;
+}
+
+//return the smallest value from above sorted array
+console.log(data.sort( compare ));
+
+//An event listener, code to call functions when find my park button is clicked//
+
+/*$("#findmyparkbutton").on("click",function(){
+
+});
+*/
 
 
-// Haversine formula, call convertToMiles(earthRadiusKM, userLat, userLong, parkLat, parkLong) to get final value in miles//
 
+//functions to return associated park info (phone number, lat/long, suggested hike, etc. etc.) and appear in right row/col in html
+
+
+
+//PSEUDO code
+
+/* from prev. code, ex for function syntax
+
+	if (errors <= numberErrorsAllowed) {
+			$(".errorDisplay").html(errors);
+	}	else {
+		errors = 0
+		$(".errorDisplay").html(errors)
+		imoverIt()
+	}
+*/
+
+
+//HAVERSINE
 //CHANGING TO ONE FUNCTION _-------------------> SEE BELOW FOR CODE //
 /* from jsfiddle today
 function haversineFormula(userLat, userLong, parkLat, parkLong) {
@@ -28,32 +101,8 @@ insert convert to miles formula
 
 	return haversine value
 }
-*/
-var userLat = 35.50071444;
-var userLong = -80.84472615;
-var parkLat = 34.67214084;
-var parkLong = -77.14148631;
-//FUNCTION NOW WORKS IN THE CONSOLE!!!!!!!!!!!!!!
-function haversineFormula(userLat, userLong, parkLat, parkLong) {
-  var radUserLat = userLat * (Math.PI / 180);
-  var radUserLong = userLong * (Math.PI / 180);
-  var radParkLat = parkLat * (Math.PI / 180);
-  var radParkLong = parkLong * (Math.PI / 180);
 
-  var difLat = radParkLat - radUserLat;
-  var difLong = radParkLong - radUserLong;
-
-  var haversineOne = Math.sin(difLat/2) * Math.sin(difLat/2) + Math.cos(radUserLat)*Math.cos(radParkLat) * Math.sin(difLong/2) * Math.sin(difLong/2);
-
-  var haversineTwo = 2 * 6378 * Math.asin(Math.sqrt(haversineOne));
-
-  var havmiles = haversineTwo * 0.621371;
-
-	return havmiles;
-}
-
-//console.log(haversineFormula(userLat, userLong, parkLat, parkLong))
-/*
+//OLD haversine
 var userLat = 35.50071444;
 var userLong = -80.84472615;
 var parkLat = 34.67214084;
@@ -100,61 +149,12 @@ function haversineStepTwo (earthRadiusKM, userLat, userLong, parkLat, parkLong) 
 function convertToMiles(earthRadiusKM, userLat, userLong, parkLat, parkLong) {
   return (haversineStepTwo(earthRadiusKM, userLat, userLong, parkLat, parkLong) * 0.621371);
 }
-
-// Time Calculation - note 25 minutes per mile? //
-var screenTimeHours = 4;
-var screenTimeMinutes = 17;
-
-function timeToHikingMiles(screenTimeHours, screenTimeMinutes){
-  return ((screenTimeHours * 60) + screenTimeMinutes)/25;
-}
-
-/*
 function mockHaver(lat){
  return 4 + Number(lat);
 }
-*/
-
-for(let i = 0; i < data.length; i++){
-	data[i].haversine = convertToMiles(data[i].lat)
-}
-
-
-function compare( a, b ) {
-  if ( a.haversine < b.haversine ){
-    return -1;
-  }
-  if ( a.haversine > b.haversine ){
-    return 1;
-  }
-  return 0;
-}
-
-console.log(data.sort( compare ));
-
-//NEED: An event listener, code to call functions when buttone clicked//
 
 /*$(".findmyparkbox").on("click",function(){
 	errors ++;
 	updatingerrorDisplay();
 });
-*/
-
-//Take in input values from user and assign them to variables//
-
-//Call above formulas using inputted values and values from data//
-
-
-
-
-
-/* from prev. code, ex for function syntax
-
-	if (errors <= numberErrorsAllowed) {
-			$(".errorDisplay").html(errors);
-	}	else {
-		errors = 0
-		$(".errorDisplay").html(errors)
-		imoverIt()
-	}
 */
