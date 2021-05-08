@@ -1,4 +1,3 @@
-
 /* javascript */
 "use strict";
 
@@ -19,25 +18,32 @@ function haversineFormula(userLat, userLong, parkLat, parkLong) { //can i pass i
   var radUserLat = userLat * (Math.PI / 180);
   var radUserLong = userLong * (Math.PI / 180);
   var radParkLat = parkLat * (Math.PI / 180); //change park lat to somehow have data index data[i].lat??
-  var radParkLong = parkLong * (Math.PI / 180);//change park long to somehow have data index data[i].long??
+  var radParkLong = parkLong * (Math.PI / 180); //change park long to somehow have data index data[i].long??
 
   var difLat = radParkLat - radUserLat;
   var difLong = radParkLong - radUserLong;
 
-  var haversineOne = Math.sin(difLat/2) * Math.sin(difLat/2) + Math.cos(radUserLat)*Math.cos(radParkLat) * Math.sin(difLong/2) * Math.sin(difLong/2);
+  var haversineOne = Math.sin(difLat / 2) * Math.sin(difLat / 2) + Math.cos(radUserLat) * Math.cos(radParkLat) * Math.sin(difLong / 2) * Math.sin(difLong / 2);
 
   var haversineTwo = 2 * 6378 * Math.asin(Math.sqrt(haversineOne));
 
   var havmiles = haversineTwo * 0.621371;
 
-	return havmiles;
+  return havmiles;
 }
 
+function timeToHikingMiles(userHours, userMinutes) {
+  var totalTime = (parseFloat(userHours) * 60) + parseFloat(userMinutes);
+  var totalMiles = parseFloat(totalTime) / '25';
+  return totalMiles;
+}
 // Time Calculation
-
+//function works
+/*
 function timeToHikingMiles(userHours, userMinutes){
   return ((userHours * 60) + userMinutes)/25;
 }
+*/
 /*
 //Go through every park lat/long & calculate distance between park and user
 for(let i = 0; i < data.length; i++){
@@ -59,24 +65,22 @@ function compare( a, b ) {
 console.log(data.sort( compare ));
 
 */
-$("#findmyparkbutton").on("click",function () {
- var userHours = document.getElementById("hours").value;
-//  alert(hours);
- var userMinutes = document.getElementById("minutes").value;
-//  alert(minutes);
+$("#findmyparkbutton").on("click", function() {
+  var userHours = document.getElementById("hours").value;
+  // alert(userHours);
+  var userMinutes = document.getElementById("minutes").value;
+  //alert(userMinutes);
   var userLat = document.getElementById("latitude").value;
-//  alert(latitude);
-  var userLong  = document.getElementById("longitude").value;
-//  alert(longitude);
+  //  alert(latitude);
+  var userLong = document.getElementById("longitude").value;
+  //  alert(longitude);
 
-//alert(haversineFormula(userLat, userLong, parkLat, parkLong));
+  alert(haversineFormula(userLat, userLong, parkLat, parkLong)); //works (parkLat & long hard coded)
 
-alert(timeToHikingMiles(userHours, userMinutes));
-}
-);
+  alert(timeToHikingMiles(userHours, userMinutes)); //gives wrong value, (too high) something wrong with variables? alert(hours) & alert(minutes) gives right input values, function on its own works in console
 
 
-
+});
 
 
 
