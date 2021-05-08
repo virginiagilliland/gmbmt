@@ -30,7 +30,7 @@ insert step two of haversine
 
 insert convert to miles formula
 
-	return difLat
+	return haversine value
 }
 
 console.log(haversineFormula(userLat, userLong, parkLat, parkLong))
