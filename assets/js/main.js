@@ -10,11 +10,11 @@ var parkLat = 34.67214084;
 var parkLong = -77.14148631;
 
 //FUNCTION NOW WORKS IN THE CONSOLE!!!!!!!!!!!!!!
-function haversineFormula(userLat, userLong, parkLat, parkLong) {
+function haversineFormula(userLat, userLong, parkLat, parkLong) { //can i pass in data[i].lat and data[i].long? does it matter what is passed in?
   var radUserLat = userLat * (Math.PI / 180);
   var radUserLong = userLong * (Math.PI / 180);
-  var radParkLat = parkLat * (Math.PI / 180);
-  var radParkLong = parkLong * (Math.PI / 180);
+  var radParkLat = parkLat * (Math.PI / 180); //change park lat to somehow have data index data[i].lat??
+  var radParkLong = parkLong * (Math.PI / 180);//change park long to somehow have data index data[i].long??
 
   var difLat = radParkLat - radUserLat;
   var difLong = radParkLong - radUserLong;
