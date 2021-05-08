@@ -1,7 +1,9 @@
 
 /* javascript */
 "use strict";
+
 //functions to get data inputted by user & put as variables userLat, userLong, userHours, userMinutes
+
 var userLat = 35.50071444;
 var userLong = -80.84472615;
 var userHours = 4;
@@ -53,6 +55,23 @@ function compare( a, b ) {
 
 //return the smallest value from above sorted array
 console.log(data.sort( compare ));
+
+*/
+$("#findmyparkbutton").on("click",function () {
+  var hours = document.getElementById("hours").value;
+//  alert(hours);
+  var minutes = document.getElementById("minutes").value;
+//  alert(minutes);
+  var latitude = document.getElementById("latitude").value;
+//  alert(latitude);
+  var longitude  = document.getElementById("longitude").value;
+//  alert(longitude);
+
+}
+
+)
+
+
 
 //An event listener, code to call functions when find my park button is clicked//
 
