@@ -90,7 +90,7 @@ $("#findmyparkbutton").on("click", function() {
 
 
 
-//PSEUDO code
+//PSEUDO code!
 
 /* from prev. code, ex for function syntax
 
