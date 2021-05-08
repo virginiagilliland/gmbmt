@@ -1,8 +1,40 @@
 
 /* javascript */
 "use strict";
+//functions to get data inputted by user//
+
+//uh oh itll need to go through every single park and calculate the distance//
+//and then remember all of those distances//
+//and then report back the smallest distance//
+
+//sort array by property
+//console.log(data[0]); //take spaces out of names//
+
 
 // Haversine formula, call convertToMiles(earthRadiusKM, userLat, userLong, parkLat, parkLong) to get final value in miles//
+
+//CHANGING TO ONE FUNCTION//
+/* from jsfiddle today
+function haversineFormula(userLat, userLong, parkLat, parkLong) {
+  var radUserLat = userLat * (Math.PI / 180);
+  var radUserLong = userLong * (Math.PI / 180);
+  var radParkLat = parkLat * (Math.PI / 180);
+  var radParkLong = parkLong * (Math.PI / 180);
+
+  var difLat = radParkLat - radUserLat;
+  var difLong = radParkLong - radUserLong;
+
+insert step one of haversine
+
+insert step two of haversine
+
+insert convert to miles formula
+
+	return difLat
+}
+
+console.log(haversineFormula(userLat, userLong, parkLat, parkLong))
+*/
 var earthRadiusKM = 6378;
 var userLat = 35.50071444;
 var userLong = -80.84472615;
@@ -23,6 +55,11 @@ function parkLatToRadians(parkLat){
 
 function parkLongtoRadians(parkLong){
   return parkLong * (Math.PI / 180);
+}
+
+//convert to radians
+function convertToRadians(num){
+  return num * (Math.PI / 180);
 }
 
 
@@ -53,6 +90,45 @@ var screenTimeMinutes = 17;
 function timeToHikingMiles(screenTimeHours, screenTimeMinutes){
   return ((screenTimeHours * 60) + screenTimeMinutes)/25;
 }
+
+/*
+function mockHaver(lat){
+ return 4 + Number(lat);
+}
+*/
+
+for(let i = 0; i < data.length; i++){
+	data[i].haversine = convertToMiles(data[i].lat)
+}
+
+
+function compare( a, b ) {
+  if ( a.haversine < b.haversine ){
+    return -1;
+  }
+  if ( a.haversine > b.haversine ){
+    return 1;
+  }
+  return 0;
+}
+
+console.log(data.sort( compare ));
+
+//NEED: An event listener, code to call functions when buttone clicked//
+
+/*$(".findmyparkbox").on("click",function(){
+	errors ++;
+	updatingerrorDisplay();
+});
+*/
+
+//Take in input values from user and assign them to variables//
+
+//Call above formulas using inputted values and values from data//
+
+
+
+
 
 /*
 
