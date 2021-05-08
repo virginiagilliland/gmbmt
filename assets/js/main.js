@@ -130,7 +130,7 @@ console.log(data.sort( compare ));
 
 
 
-/*
+/* from prev. code, ex for function syntax
 
 	if (errors <= numberErrorsAllowed) {
 			$(".errorDisplay").html(errors);
