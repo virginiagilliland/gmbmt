@@ -1,6 +1,27 @@
 /* css */
+#findmyparkbutton {
+  width: 104px;
+  height: 40px;
+  font-size: 10px;
+    background: rgba(163, 148, 126, 0.57);
+  border-radius: 10px;
+  border-color: rgba(163, 148, 126, 0.57);
+}
 
-#appicon {
+#nextclosestbutton {
+  width: 104px;
+  height: 30px;
+  font-size: 10px;
+    background: rgba(163, 148, 126, 0.57);
+  border-radius: 10px;
+  border-color: rgba(163, 148, 126, 0.57);
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+/* #appicon {
   position: absolute;
   width: 81px;
   height: 81px;
@@ -10,7 +31,7 @@
 
 #gmbmticon {
   /* 68930A6F-A391-451D-B31E-B5F4FA39A2C5 */
-  position: absolute;
+/*  position: absolute;
   width: 81px;
   height: 81px;
   left: 300px;
@@ -44,7 +65,7 @@
   font-weight: normal;
   font-size: 9px;
   line-height: 11px;
-  /*text-align: center;*/
+  /*text-align: center;
   color: #000000;
 }
 
@@ -79,7 +100,7 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-  /* identical to box height */
+  /* identical to box height
   color: #000000;
 }
 
@@ -94,7 +115,7 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-  /* identical to box height */
+  /* identical to box height
   color: #000000;
 }
 
@@ -146,7 +167,7 @@
   /* identical to box height
   color: #000000;
 }
-*/
+
 
 #nextclosesttext {
   position: absolute;
@@ -214,7 +235,7 @@
   top: 207px;
   z-index: -99999;
 }
-*/
+
 
 #longitudebox {
   position: absolute;
@@ -443,4 +464,4 @@ left: 37px;
 top: 570px;
 }
 
-/* 68930A6F-A391-451D-B31E-B5F4FA39A2C5 */
+/* 68930A6F-A391-451D-B31E-B5F4FA39A2C5 */ */
