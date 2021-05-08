@@ -77,9 +77,7 @@ $("#findmyparkbutton").on("click", function() {
 
   alert(haversineFormula(userLat, userLong, parkLat, parkLong)); //works (parkLat & long hard coded)
 
-  alert(timeToHikingMiles(userHours, userMinutes)); //gives wrong value, (too high) something wrong with variables? alert(hours) & alert(minutes) gives right input values, function on its own works in console
-
-
+  alert(timeToHikingMiles(userHours, userMinutes));
 });
 
 
