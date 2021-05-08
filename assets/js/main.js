@@ -1,11 +1,16 @@
 /* javascript */
+
+
 "use strict";
+
+
 
 //functions to get data inputted by user & put as variables userLat, userLong, userHours, userMinutes
 
-/*
+
 var userLat = 35.50071444;
 var userLong = -80.84472615;
+/*
 var userHours = 4;
 var userMinutes = 17;
 */
@@ -74,7 +79,12 @@ $("#findmyparkbutton").on("click", function() {
   //  alert(latitude);
   var userLong = document.getElementById("longitude").value;
   //  alert(longitude);
-
+/*
+  for(let i = 0; i < data.length; i++) { //console gives error data already defined
+  	data[i].haversine = haversineFormula(data[i].lat, data[i].long, userLat, userLong);
+    alert(data[i].haversine);
+}
+*/
   alert(haversineFormula(userLat, userLong, parkLat, parkLong)); //works (parkLat & long hard coded)
 
   alert(timeToHikingMiles(userHours, userMinutes));
