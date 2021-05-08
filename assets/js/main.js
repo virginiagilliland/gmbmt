@@ -4,12 +4,15 @@
 
 //functions to get data inputted by user & put as variables userLat, userLong, userHours, userMinutes
 
+/*
 var userLat = 35.50071444;
 var userLong = -80.84472615;
 var userHours = 4;
 var userMinutes = 17;
+*/
 var parkLat = 34.67214084;
 var parkLong = -77.14148631;
+
 
 //FUNCTION NOW WORKS IN THE CONSOLE!!!!!!!!!!!!!!
 function haversineFormula(userLat, userLong, parkLat, parkLong) { //can i pass in data[i].lat and data[i].long? does it matter what is passed in?
@@ -29,14 +32,13 @@ function haversineFormula(userLat, userLong, parkLat, parkLong) { //can i pass i
 
 	return havmiles;
 }
-//console.log(haversineFormula(userLat, userLong, parkLat, parkLong))
 
 // Time Calculation
 
 function timeToHikingMiles(userHours, userMinutes){
   return ((userHours * 60) + userMinutes)/25;
 }
-
+/*
 //Go through every park lat/long & calculate distance between park and user
 for(let i = 0; i < data.length; i++){
 	data[i].haversine = convertToMiles(data[i].lat)
@@ -58,31 +60,29 @@ console.log(data.sort( compare ));
 
 */
 $("#findmyparkbutton").on("click",function () {
-  var hours = document.getElementById("hours").value;
+ var userHours = document.getElementById("hours").value;
 //  alert(hours);
-  var minutes = document.getElementById("minutes").value;
+ var userMinutes = document.getElementById("minutes").value;
 //  alert(minutes);
-  var latitude = document.getElementById("latitude").value;
+  var userLat = document.getElementById("latitude").value;
 //  alert(latitude);
-  var longitude  = document.getElementById("longitude").value;
+  var userLong  = document.getElementById("longitude").value;
 //  alert(longitude);
 
+//alert(haversineFormula(userLat, userLong, parkLat, parkLong));
+
+alert(timeToHikingMiles(userHours, userMinutes));
 }
-
-)
-
+);
 
 
-//An event listener, code to call functions when find my park button is clicked//
 
-/*$("#findmyparkbutton").on("click",function(){
 
-});
-*/
 
 
 
 //functions to return associated park info (phone number, lat/long, suggested hike, etc. etc.) and appear in right row/col in html
+
 
 
 
