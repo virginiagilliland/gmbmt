@@ -1,17 +1,4 @@
-# DIG 245 Final
+# GMBMT
 
-
-We’ve looked at a number of interconnected issues around design and the internet this semester. Some are specific forms we can identify, like how dark patterns manipulate our experiences by affecting usability and user expectations. Others, like how the surveillance economy affects social justice are harder to visualize, but equally important when we consider whether the internet is or is not a positive force in society.
-
-At the beginning of the semester, the [View Source](https://github.com/omundy/dig245-a2) assignment asked you to think about why it is important to be able to know how a web page works “under the hood.” This final assignment challenges you to further investigate one or more of your preferred themes from the course and make a creative response in the form of a web application that likewise makes the topic more understandable, relevant, or transparent.
-
-Your application will consist of HTML, CSS, Javascript, and any additional libraries you may need, but it should address the topic through an interactive experience that involves a user somehow inputting data, and then your app changing and using / displaying that data to reveal insights into your chosen topic.
-
-We'll produce our projects using this [project development template](https://github.com/omundy/project-development-template) (specific dates are on the schedule).
-
-
-
-## Notes
-
-- Course resources, documentation etc. can be found on the course [repo](https://github.com/omundy/critical-web-design/blob/master/README.md)
-- Refer to this [rubric](https://docs.google.com/document/d/1gqAB_AHkMC6uKr_1uP9JzPwWclABw1RAB7KwEgAQSds/edit) for grading.
+“Give me back my time.” was created during the COVID-19 pandemic to address the sharp increase in hours spent on screens. While screens are beneficial for connection through apps like Facetime, people tend to get distracted when using social media apps like Instagram, Twitter, and Facebook, losing many hours that could be spent elsewhere. The influx of Zoom meetings and Zoom class led to even more time spent on screens and caused ‘screen fatigue’. To address this screen fatigue, many sought the outdoors.
+Residents of North Carolina may be surprised to find out there are 41 state parks free to the public (camping permits require a small fee). Ranging from Mt. Mitchell State Park in Black Mountain to Carolina Beach State Park on the east coast, each resident likely has a park nearby. This app does two things: 1) help people realize how much time they spend on their phone, computer, iPad, and other electronic devices daily and 2) help people get back outdoors by connecting them to a nearby state park and providing them with the associated information. Users enter their screen time in hours and minutes and their location through latitude and longitude. Next, they click “Find my park!” to get the NC state park closest to them & its associated information (park phone number, park lat/long, activities, a suggested hike, and the a nearby ice cream shop). If they already have been to that park they can click “next closest” to get the second closest park to them. Continuing to click next closest will bring up the third, then fourth, etc. park & its information.
