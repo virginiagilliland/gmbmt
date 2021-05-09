@@ -540,7 +540,6 @@ let data=[{
 import {data} from "data.js";
 console.log(data);
 */
-//functions to get data inputted by user & put as variables userLat, userLong, userHours, userMinutes
 
 /*
 var userLat = 35.50071444;
@@ -552,13 +551,12 @@ var userMinutes = 17;
 var parkLat = 34.67214084;
 var parkLong = -77.14148631;
 
-//FUNCTION NOW WORKS IN THE CONSOLE!!!!!!!!!!!!!!
-function haversineFormula(userLat, userLong, parkLat, parkLong) { //can i pass in data[i].lat and data[i].long? does it matter what is passed in?
+function haversineFormula(userLat, userLong, parkLat, parkLong) {
   var radUserLat = parseFloat(userLat) * (Math.PI / 180);
   var radUserLong = parseFloat(userLong) * (Math.PI / 180);
-  var radParkLat = parseFloat(parkLat) * (Math.PI / 180); //change park lat to somehow have data index data[i].lat??
+  var radParkLat = parseFloat(parkLat) * (Math.PI / 180);
 //  console.log(parseFloat(parkLat));
-  var radParkLong = parseFloat(parkLong) * (Math.PI / 180); //change park long to somehow have data index data[i].long??
+  var radParkLong = parseFloat(parkLong) * (Math.PI / 180);
 //   console.log(parseFloat(userLat));
 //console.log(parseFloat(userLong));
   var difLat = radParkLat - radUserLat;
@@ -578,8 +576,7 @@ function timeToHikingMiles(userHours, userMinutes) {
   var totalMiles = parseFloat(totalTime) / '25';
   return totalMiles;
 }
-// Time Calculation
-//function works
+
 /*
 function timeToHikingMiles(userHours, userMinutes){
   return ((userHours * 60) + userMinutes)/25;
@@ -598,23 +595,7 @@ var latarray = [];
 
 return latarray;
 }
-/*
-
-
-//compare the returned haversine values from above, ordering them from lowest to highest
-function compare( a, b ) {
-  if ( a.haversine < b.haversine ){
-    return -1;
-  }
-  if ( a.haversine > b.haversine ){
-    return 1;
-  }
-  return 0;
-}
 */
-//return the smallest value from above sorted array
-//console.log(data.sort( compare ));
-
 
 $("#findmyparkbutton").on("click", function() {
   var userHours = document.getElementById("hours").value;
@@ -625,21 +606,10 @@ $("#findmyparkbutton").on("click", function() {
 //   alert(userLat);
   var userLong = document.getElementById("longitude").value;
 // alert(userLong);
-/*
-  for(let i = 0; i < data.length; i++) { //console gives error data already defined
-  	data[i].haversine = haversineFormula(data[i].lat, data[i].long, userLat, userLong);
-    alert(data[i].haversine);
-}for(let i=0; i< data.length; i++){
-var latarray = [];
-  data.push(data[i].lat)[i];
-
-return latarray;
-}
-*/
 
 for(let i = 0; i < data.length; i++){
 	data[i].haversine = haversineFormula(userLat, userLong, data[i].lat, data[i].long);
-  console.log(data[14]);
+//  console.log(data[i]);
 }
 
 function compare( a, b ) {
@@ -652,8 +622,8 @@ function compare( a, b ) {
   return 0;
 }
 
-  data.sort( compare );
-
+//  data.sort( compare );
+console.log(  data.sort( compare ));
   //alert(haversineFormula(userLat, userLong, parkLat, parkLong)); //works (parkLat & long hard coded)
 
   //alert(timeToHikingMiles(userHours, userMinutes));
@@ -665,111 +635,16 @@ function compare( a, b ) {
   return latarray;
   }
   */
+  document.getElementById("stateparkname").innerHTML = data[0].parkname;
+  document.getElementById("milestohike").innerHTML = data[0].totalMiles; //fix this
 document.getElementById("activites").innerHTML = data[0].activites;
 });
 
-
+/*
 var counter = 0;
 $("#").on("click", function() {
   counter ++;
   document.getElementById("activites").innerHTML = data[counter].activites;
 
-});
-
-
-//functions to return associated park info (phone number, lat/long, suggested hike, etc. etc.) and appear in right row/col in html
-
-
-
-
-//PSEUDO code!
-
-/* from prev. code, ex for function syntax
-
-	if (errors <= numberErrorsAllowed) {
-			$(".errorDisplay").html(errors);
-	}	else {
-		errors = 0
-		$(".errorDisplay").html(errors)
-		imoverIt()
-	}
-*/
-
-
-//HAVERSINE
-//CHANGING TO ONE FUNCTION _-------------------> SEE BELOW FOR CODE //
-/* from jsfiddle today
-function haversineFormula(userLat, userLong, parkLat, parkLong) {
-  var radUserLat = userLat * (Math.PI / 180);
-  var radUserLong = userLong * (Math.PI / 180);
-  var radParkLat = parkLat * (Math.PI / 180);
-  var radParkLong = parkLong * (Math.PI / 180);
-
-  var difLat = radParkLat - radUserLat;
-  var difLong = radParkLong - radUserLong;
-
-insert step one of haversine
-
-insert step two of haversine
-
-insert convert to miles formula
-
-	return haversine value
-}
-
-//OLD haversine
-var userLat = 35.50071444;
-var userLong = -80.84472615;
-var parkLat = 34.67214084;
-var parkLong = -77.14148631;
-/*
-function userLatToRadians(userLat){
-  return userLat * (Math.PI / 180);
-}
-
-function userLongToRadians(userLong){
-  return userLong * (Math.PI / 180);
-}
-
-function parkLatToRadians(parkLat){
-  return parkLat * (Math.PI / 180);
-}
-
-function parkLongtoRadians(parkLong){
-  return parkLong * (Math.PI / 180);
-}
-
-//convert to radians
-function convertToRadians(num){
-  return num * (Math.PI / 180);
-}
-
-
-function differenceLat(parkLat, userLat){
-  return parkLatToRadians(parkLat) - userLatToRadians(userLat);
-}
-
-function differenceLong(parkLong, userLong){
-  return parkLongtoRadians(parkLong) - userLongToRadians(userLong);
-}
-
-function haversineStepOne (userLat, userLong, parkLat, parkLong){
-  return Math.sin(differenceLat(userLat, parkLat)/2) * Math.sin(differenceLat(userLat, parkLat)/2) + Math.cos(userLatToRadians(userLat)) * Math.cos(parkLatToRadians(parkLat)) * Math.sin(differenceLong(parkLong, userLong)/2) * Math.sin(differenceLong(parkLong, userLong)/2);
-}
-
-function haversineStepTwo (earthRadiusKM, userLat, userLong, parkLat, parkLong) {
-  return 2 * earthRadiusKM * Math.asin(Math.sqrt(haversineStepOne(parkLat, parkLong, userLat, userLong)));
-}
-
-function convertToMiles(earthRadiusKM, userLat, userLong, parkLat, parkLong) {
-  return (haversineStepTwo(earthRadiusKM, userLat, userLong, parkLat, parkLong) * 0.621371);
-}
-function mockHaver(lat){
- return 4 + Number(lat);
-}
-
-/*$(".findmyparkbox").on("click",function(){
-	errors ++;
-	updatingerrorDisplay();
 });
 */
