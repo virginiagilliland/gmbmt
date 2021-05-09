@@ -613,17 +613,17 @@ timeToHikingMiles(userHours, userMinutes);
   //alert(timeToHikingMiles(userHours, userMinutes));
 */
   document.getElementById("stateparkname").innerHTML = data[0].parkname;
-  document.getElementById("milestohike").innerHTML = timeToHikingMiles(userHours, userMinutes); //fix this
+  document.getElementById("milestohike").innerHTML = timeToHikingMiles(userHours, userMinutes) + ' miles'; //fix this
   document.getElementById("activites").innerHTML = data[0].activites;
   document.getElementById("parkphone").innerHTML = data[0].parkphone;
   document.getElementById("suggesthikename").innerHTML = data[0].suggesthike;
-  document.getElementById("suggesthikelength").innerHTML = data[0].lengthsuggesthike;
-  document.getElementById("suggesthikedifficulty").innerHTML = data[0].difsughike;
-  document.getElementById("parklatitude").innerHTML = data[0].lat;
-  document.getElementById("parklongitude").innerHTML = data[0].long;
+  document.getElementById("suggesthikelength").innerHTML = 'Hike distance: ' + data[0].lengthsuggesthike + ' miles';
+  document.getElementById("suggesthikedifficulty").innerHTML = 'Hike difficulty: ' + data[0].difsughike;
+  document.getElementById("parklatitude").innerHTML = 'Latitude: ' + data[0].lat;
+  document.getElementById("parklongitude").innerHTML = 'Longitude: ' + data[0].long;
   document.getElementById("icecreamname").innerHTML = data[0].nameicecream;
   document.getElementById("icecreamaddress").innerHTML = data[0].addressicecream;
-  document.getElementById("icecreamdistance").innerHTML = data[0].distanceicecream;
+  document.getElementById("icecreamdistance").innerHTML = 'Distance from park to icecream: ' + data[0].distanceicecream + ' miles';
 });
 
 
@@ -634,13 +634,13 @@ $("#nextclosestbutton").on("click", function() {
   document.getElementById("stateparkname").innerHTML = data[counter].parkname;
   document.getElementById("parkphone").innerHTML = data[counter].parkphone;
   document.getElementById("suggesthikename").innerHTML = data[counter].suggesthike;
-  document.getElementById("suggesthikelength").innerHTML = data[counter].lengthsuggesthike;
-  document.getElementById("suggesthikedifficulty").innerHTML = data[counter].difsughike;
-  document.getElementById("parklatitude").innerHTML = data[counter].lat;
-  document.getElementById("parklongitude").innerHTML = data[counter].long;
+  document.getElementById("suggesthikelength").innerHTML = 'Hike distance: ' + data[counter].lengthsuggesthike + ' miles';
+  document.getElementById("suggesthikedifficulty").innerHTML = 'Hike difficulty: ' + data[counter].difsughike;
+  document.getElementById("parklatitude").innerHTML = 'Latitude: ' + data[counter].lat;
+  document.getElementById("parklongitude").innerHTML = 'Longitude: ' + data[counter].long;
   document.getElementById("icecreamname").innerHTML = data[counter].nameicecream;
   document.getElementById("icecreamaddress").innerHTML = data[counter].addressicecream;
-  document.getElementById("icecreamdistance").innerHTML = data[counter].distanceicecream;
+  document.getElementById("icecreamdistance").innerHTML = 'Distance from park to icecream: ' + data[counter].distanceicecream + ' miles';
 
 
 });
