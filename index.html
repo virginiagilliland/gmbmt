@@ -28,7 +28,7 @@
           <p>Are screens sucking up all of your time? It’s time to get back outdoors..
             Input your daily screen time and latitude/longitude and click “Find My Park!”
             Get the NC State Park closest to you and the amount
-            of hiking miles equivalent to your screen time. </p>
+            of hiking miles equivalent to your screen time. Already been there? Click "Next Closest Park" to see the second closest park to you. Been there too? Continue clicking "Next Closest Park".</p>
         </div>
       </div>
 
@@ -114,7 +114,7 @@
 
       <div class="row">
         <div class="col text-center">
-          and hike for...
+          and hike for (miles)...
         </div>
       </div>
 
@@ -135,7 +135,7 @@
         </div>
         <div class="col-10">
           <small>Phone number</small> <br>
-          910-326-4881
+        <p id="parkphone"></p>
         </div>
       </div>
       <div class="row">
@@ -144,7 +144,9 @@
         </div>
         <div class="col-10">
           <small>Park Lat/Long</small> <br>
-          (34.67214084, -77.14148631)
+          <p id="parklatitude"> </p>
+          <p id="parklongitude"> </p>
+
         </div>
       </div>
       <div class="row">
@@ -153,9 +155,9 @@
         </div>
         <div class="col-10">
           <small>Suggested Hike</small> <br>
-          Coastal Fringe Trail <br>
-          0.8 miles <br>
-          moderate
+        <p id="suggesthikename"></p>
+        <p id="suggesthikelength"></p>
+        <p id="suggesthikedifficulty"></p>
         </div>
       </div>
       <div class="row">
@@ -174,9 +176,9 @@
         </div>
         <div class="col-10">
           <small>Nearest Icecream</small> <br>
-          Dairy Queen <br>
-          2 miles <br>
-          709 W Corbett Ave, Swansboro, NC 28584
+        <p id="icecreamname"></p>
+        <p id="icecreamaddress"></p>
+        <p id="icecreamdistance"></p>
         </div>
       </div>
 

@@ -530,7 +530,8 @@ let data=[{
   "nameicecream": "Cold Stone Creamery",
   "addressicecream": "7840 Alexander Promenade PI #140, Raleigh, NC 27617",
   "distanceicecream": "2.7",
-  "activites": "Hiking (34.5 miles); Biking (13 miles); Horseback riding (13 miles); Paddling; Fishing; Picnicking, Company Mill Trail",
+  "activites": "Hiking (34.5 miles); Biking (13 miles); Horseback riding (13 miles); Paddling; Fishing; Picnicking",
+  "suggesthike": "Company Mill Trail",
   "lengthsuggesthike": "5.1",
   "difsughike": "intermediate",
   "placeholder": "0"
@@ -548,17 +549,18 @@ var userLong = -80.84472615;
 var userHours = 4;
 var userMinutes = 17;
 */
+/*
 var parkLat = 34.67214084;
 var parkLong = -77.14148631;
-
+*/
 function haversineFormula(userLat, userLong, parkLat, parkLong) {
   var radUserLat = parseFloat(userLat) * (Math.PI / 180);
   var radUserLong = parseFloat(userLong) * (Math.PI / 180);
   var radParkLat = parseFloat(parkLat) * (Math.PI / 180);
-//  console.log(parseFloat(parkLat));
+  //  console.log(parseFloat(parkLat));
   var radParkLong = parseFloat(parkLong) * (Math.PI / 180);
-//   console.log(parseFloat(userLat));
-//console.log(parseFloat(userLong));
+  //   console.log(parseFloat(userLat));
+  //console.log(parseFloat(userLong));
   var difLat = radParkLat - radUserLat;
   var difLong = radParkLong - radUserLong;
 
@@ -577,74 +579,68 @@ function timeToHikingMiles(userHours, userMinutes) {
   return totalMiles;
 }
 
-/*
-function timeToHikingMiles(userHours, userMinutes){
-  return ((userHours * 60) + userMinutes)/25;
-}
-*/
-/*
-//Go through every park lat/long & calculate distance between park and user
-for(let i = 0; i < data.length; i++){
-	data[i].haversine = convertToMiles(data[i].lat)
-}
-*/
-/*
-for(let i=0; i< data.length; i++){
-var latarray = [];
-  data.push(data[i].lat)[i];
-
-return latarray;
-}
-*/
-
 $("#findmyparkbutton").on("click", function() {
   var userHours = document.getElementById("hours").value;
-//   alert(userHours);
+  //   alert(userHours);
   var userMinutes = document.getElementById("minutes").value;
-//  alert(userMinutes);
+  //  alert(userMinutes);
   var userLat = document.getElementById("latitude").value;
-//   alert(userLat);
+  //   alert(userLat);
   var userLong = document.getElementById("longitude").value;
-// alert(userLong);
+  // alert(userLong);
 
-for(let i = 0; i < data.length; i++){
-	data[i].haversine = haversineFormula(userLat, userLong, data[i].lat, data[i].long);
-//  console.log(data[i]);
-}
-
-function compare( a, b ) {
-  if ( a.haversine < b.haversine ){
-    return -1;
+  for (let i = 0; i < data.length; i++) {
+    data[i].haversine = haversineFormula(userLat, userLong, data[i].lat, data[i].long);
+    //  console.log(data[i]);
   }
-  if ( a.haversine > b.haversine ){
-    return 1;
-  }
-  return 0;
-}
 
-//  data.sort( compare );
-console.log(  data.sort( compare ));
+  function compare(a, b) {
+    if (a.haversine < b.haversine) {
+      return -1;
+    }
+    if (a.haversine > b.haversine) {
+      return 1;
+    }
+    return 0;
+  }
+
+  //  data.sort( compare );
+  console.log(data.sort(compare));
   //alert(haversineFormula(userLat, userLong, parkLat, parkLong)); //works (parkLat & long hard coded)
-
+  /*
+let totalMiles = 0;
+timeToHikingMiles(userHours, userMinutes);
   //alert(timeToHikingMiles(userHours, userMinutes));
-  /* idea, create an array for lat and an array of all the park long points. for loop through in haversine but issue - then would have to back track index
-  var latarray = [];
-
-  for(let i=0; i< data.length; i++){
-    latarray.push(data[i].lat);
-  return latarray;
-  }
-  */
-  document.getElementById("stateparkname").innerHTML = data[0].parkname;
-  document.getElementById("milestohike").innerHTML = data[0].totalMiles; //fix this
-document.getElementById("activites").innerHTML = data[0].activites;
-});
-
-/*
-var counter = 0;
-$("#").on("click", function() {
-  counter ++;
-  document.getElementById("activites").innerHTML = data[counter].activites;
-
-});
 */
+  document.getElementById("stateparkname").innerHTML = data[0].parkname;
+  document.getElementById("milestohike").innerHTML = timeToHikingMiles(userHours, userMinutes); //fix this
+  document.getElementById("activites").innerHTML = data[0].activites;
+  document.getElementById("parkphone").innerHTML = data[0].parkphone;
+  document.getElementById("suggesthikename").innerHTML = data[0].suggesthike;
+  document.getElementById("suggesthikelength").innerHTML = data[0].lengthsuggesthike;
+  document.getElementById("suggesthikedifficulty").innerHTML = data[0].difsughike;
+  document.getElementById("parklatitude").innerHTML = data[0].lat;
+  document.getElementById("parklongitude").innerHTML = data[0].long;
+  document.getElementById("icecreamname").innerHTML = data[0].nameicecream;
+  document.getElementById("icecreamaddress").innerHTML = data[0].addressicecream;
+  document.getElementById("icecreamdistance").innerHTML = data[0].distanceicecream;
+});
+
+
+var counter = 0;
+$("#nextclosestbutton").on("click", function() {
+  counter++;
+  document.getElementById("activites").innerHTML = data[counter].activites;
+  document.getElementById("stateparkname").innerHTML = data[counter].parkname;
+  document.getElementById("parkphone").innerHTML = data[counter].parkphone;
+  document.getElementById("suggesthikename").innerHTML = data[counter].suggesthike;
+  document.getElementById("suggesthikelength").innerHTML = data[counter].lengthsuggesthike;
+  document.getElementById("suggesthikedifficulty").innerHTML = data[counter].difsughike;
+  document.getElementById("parklatitude").innerHTML = data[counter].lat;
+  document.getElementById("parklongitude").innerHTML = data[counter].long;
+  document.getElementById("icecreamname").innerHTML = data[counter].nameicecream;
+  document.getElementById("icecreamaddress").innerHTML = data[counter].addressicecream;
+  document.getElementById("icecreamdistance").innerHTML = data[counter].distanceicecream;
+
+
+});
