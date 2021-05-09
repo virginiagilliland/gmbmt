@@ -14,190 +14,184 @@
 </head>
 
 
-  <body style="font-family: Roboto">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <h3> <img src="./assets/img/appicon.jpg" alt="appicon" style="width: 90px; height: 90px;">Give Me Back My Time</h3>
-        </div>
+<body style="font-family: Roboto">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h3> <img src="./assets/img/appicon.jpg" alt="appicon" style="width: 90px; height: 90px;">Give Me Back My Time</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10 offset-1">
+        <p>Are screens sucking up all of your time? It’s time to get back outdoors..
+          Input your daily screen time, latitude/longitude, and click “Find My Park!” to get the NC State Park closest to you and the amount
+          of hiking miles equivalent to your screen time. Already been there? Click "Next Closest Park" to see the second closest park to you. Been there too? Continue clicking "Next Closest Park".</p>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-2">
+        Screen Time
       </div>
 
-      <div class="row">
-        <div class="col-10 offset-1">
-          <p>Are screens sucking up all of your time? It’s time to get back outdoors..
-            Input your daily screen time, latitude/longitude, and click “Find My Park!” to get the NC State Park closest to you and the amount
-            of hiking miles equivalent to your screen time. Already been there? Click "Next Closest Park" to see the second closest park to you. Been there too? Continue clicking "Next Closest Park".</p>
-        </div>
+      <div class="col-3">
+        <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ first example -->
+        <label for="hours" class="form-label">Hours</label>
+        <input type="text" class="form-control" id="hours" placeholder="#">
       </div>
 
-
-
-
-
-      <div class="row">
-        <div class="col-2">
-          Screen Time
-        </div>
-
-        <div class="col-3">
-          <!-- https://getbootstrap.com/docs/5.0/forms/form-control/ first example -->
-          <label for="hours" class="form-label">Hours</label>
-          <input type="text" class="form-control" id="hours" placeholder="#">
-      <!--    <input type="text" value="4" col="3" class="form-control"> Hours -->
-        </div>
-
-        <div class="col-3">
-        <!--  <input type="text" value="4" col="3" class="form-control"> Minutes -->
+      <div class="col-3">
         <label for="minutes" class="form-label">Minutes</label>
         <input type="text" class="form-control" id="minutes" placeholder="#">
-        </div>
-<!--
-        <div class="col-4">
-          <button class="btn btn-lg btn-primary" id="findmyparkbutton" style="align: center">Find My Park!</button>
-        </div>
--->
-      </div>
-      <div class="row">
-        <br>
       </div>
 
-      <div class="row">
-        <div class="col-2">
-          Location </div>
+    </div>
 
-        <div class="col-3">
-        <!--  <input type="text" value="4" col="3" class="form-control"> Latitude -->
+    <div class="row">
+      <br>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        Location
+      </div>
+
+      <div class="col-3">
         <label for="latitude" class="form-label">Latitude coordinate</label>
         <input type="text" class="form-control" id="latitude" placeholder="XX.XXXX">
-        </div>
-
-        <div class="col-3">
-      <!--    <input type="text" value="4" col="4" class="form-control"> Longitude -->
-          <label for="longitude" class="form-label">Longitude coordinate</label>
-          <input type="text" class="form-control" id="longitude" placeholder="-XX.XXXX">
-        </div>
-
-        <div class="col-4">
-          <button class="btn btn-lg btn-primary" type="submit" id="findmyparkbutton">Find My Park!</button>
-          <button class="btn btn-lg btn-primary" id="nextclosestbutton">Next Closest!</button>
-        </div>
-
       </div>
 
-      <div class="row">
-        <div class="col-8" style="font-size: 11px">
-          Not sure of your (Latitude, Longitude)? Type your location in Google Maps,
-          right click on the pin & copy and paste the top coordinates.
-        </div>
+      <div class="col-3">
+        <label for="longitude" class="form-label">Longitude coordinate</label>
+        <input type="text" class="form-control" id="longitude" placeholder="-XX.XXXX">
       </div>
 
-      <div class="row">
-        <br>
+      <div class="col-4">
+        <button class="btn btn-lg btn-primary" type="submit" id="findmyparkbutton">Find My Park!</button>
+        <button class="btn btn-lg btn-primary" id="nextclosestbutton">Next Closest!</button>
       </div>
 
-      <div class="row">
-        <div class="col text-center">
-          Go to...
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col text-center" style="font-size: 20px">
-          <h2 id="stateparkname"></h2>
-          </div>
-        <!--  Hammocks Beach State Park -->
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col text-center">
-          and hike for...
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col text-center" style="font-size: 20px">
-<h3 id="milestohike"></h3>
-        </div>
-      </div>
-
-      <div class="row">
-        <br>
-      </div>
-
-      <div class="row">
-        <div class="col-1">
-          <img src="./assets/img/phone.png" alt="phone" class="icon">
-        </div>
-        <div class="col-10">
-          <small>Phone number</small> <br>
-        <p id="parkphone"></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <img src="./assets/img/placeholder.png" alt="latlongicon" class="icon">
-        </div>
-        <div class="col-10">
-          <small>Park Lat/Long</small> <br>
-          <p id="parklatitude"> </p>
-          <p id="parklongitude"> </p>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <img src="./assets/img/hiking.png" alt="suggestedhikeicon" class="icon">
-        </div>
-        <div class="col-10">
-          <small>Suggested Hike</small> <br>
-        <p id="suggesthikename"></p>
-        <p id="suggesthikelength"></p>
-        <p id="suggesthikedifficulty"></p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <img src="./assets/img/mountain.png" alt="activitesicon" class="icon">
-        </div>
-        <div class="col-10">
-          <small>Activites</small> <br>
-        <p id="activites"></p> <!-- Hiking (2.3 miles of trails mainland; 4 miles of beach);
-          Paddling; Swimming; Fishing; Picnicking -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <img src="./assets/img/ice-cream.png" alt="icecreamicon" class="icon">
-        </div>
-        <div class="col-10">
-          <small>Nearest Icecream</small> <br>
-        <p id="icecreamname"></p>
-        <p id="icecreamaddress"></p>
-        <p id="icecreamdistance"></p>
-        </div>
-      </div>
-
-      <div class="row">
-        <br>
-      </div>
-
-      <div class="row">
-        <div class="col text-center" style="font-size: 12px;">
-
-          Data obtained from Google Maps and NC State Parks.
-          Disclaimer: Distance calculation based on point to point, not driving distance.
-          Check true driving distance before going on trip. Icons obtained from https://www.flaticon.com/
-        </div>
-      </div>
-<div class="row">
-  <div class="col text-center" style="font-size: 12px;">
-Created by: Virginia Gilliland, vigilliland@davidson.edu
-</div>
     </div>
-  </body>
+
+    <div class="row">
+      <div class="col-8" style="font-size: 11px">
+        Not sure of your (Latitude, Longitude)? Type your location in Google Maps,
+        right click on the pin & copy and paste the top coordinates.
+      </div>
+    </div>
+
+    <div class="row">
+      <br>
+    </div>
+
+    <div class="row">
+      <div class="col text-center">
+        Go to...
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col text-center" style="font-size: 20px">
+        <h2 id="stateparkname"></h2>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col text-center">
+      and hike for...
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col text-center" style="font-size: 20px">
+      <h3 id="milestohike"></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row">
+    <div class="col-1">
+      <img src="./assets/img/phone.png" alt="phone" class="icon">
+    </div>
+    <div class="col-10">
+      <small>Phone number</small> <br>
+      <p id="parkphone"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <img src="./assets/img/placeholder.png" alt="latlongicon" class="icon">
+    </div>
+    <div class="col-10">
+      <small>Park Lat/Long</small> <br>
+      <p id="parklatitude"> </p>
+      <p id="parklongitude"> </p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <img src="./assets/img/hiking.png" alt="suggestedhikeicon" class="icon">
+    </div>
+    <div class="col-10">
+      <small>Suggested Hike</small> <br>
+      <p id="suggesthikename"></p>
+      <p id="suggesthikelength"></p>
+      <p id="suggesthikedifficulty"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <img src="./assets/img/mountain.png" alt="activitesicon" class="icon">
+    </div>
+    <div class="col-10">
+      <small>Activites</small> <br>
+      <p id="activites"></p>
+      <!-- Hiking (2.3 miles of trails mainland; 4 miles of beach);
+          Paddling; Swimming; Fishing; Picnicking -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1">
+      <img src="./assets/img/ice-cream.png" alt="icecreamicon" class="icon">
+    </div>
+    <div class="col-10">
+      <small>Nearest Icecream</small> <br>
+      <p id="icecreamname"></p>
+      <p id="icecreamaddress"></p>
+      <p id="icecreamdistance"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <br>
+  </div>
+
+  <div class="row">
+    <div class="col text-center" style="font-size: 12px;">
+
+      Data obtained from Google Maps and NC State Parks.
+      Disclaimer: Distance calculation based on point to point, not driving distance.
+      Check true driving distance before going on trip. Icons obtained from https://www.flaticon.com/
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center" style="font-size: 12px;">
+      Created by: Virginia Gilliland, vigilliland@davidson.edu
+    </div>
+  </div>
+</div>
+</body>
 
 
   <!-- javascripts -->

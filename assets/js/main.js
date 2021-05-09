@@ -2,7 +2,7 @@
 
 
 "use strict";
-let data=[{
+let data = [{
   "parkname": "Carolina Beach State Park",
   "lat": "34.04572234",
   "long": "-77.91382456",
